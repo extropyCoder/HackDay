@@ -13,3 +13,6 @@ Ethereum Command Line Tools  :  https://www.ethereum.org/cli
 Mix IDE                      :  https://github.com/ethereum/webthree-umbrella/releases/tag/v1.2.9
 
 Solidity Documentation       : https://solidity.readthedocs.io/en/latest/     
+
+Truffle Documentation        : https://truffle.readthedocs.io/en/latest/
+TestRPC                      : https://github.com/ethereumjs/testrpc  
