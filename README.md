@@ -23,6 +23,7 @@ Mix IDE                      :  https://github.com/ethereum/webthree-umbrella/re
 
 Solidity Documentation       : https://solidity.readthedocs.io/en/latest/     
 
+Security Good Practices      : https://github.com/ConsenSys/smart-contract-best-practices#explicitly-mark-visibility-in-functions-and-state-variables 
 
 
 Truffle Documentation        : https://truffle.readthedocs.io/en/latest/
