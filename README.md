@@ -1,6 +1,6 @@
 # HackDay
 
-Instructions and Resources for the Ethereum Hackathon on Saturday July 30th
+Instructions and Resources for the Ethereum Workshops
 
 
 
@@ -17,13 +17,13 @@ Ethereum Webpage/Tutorials   :  https://www.ethereum.org/
 
 Ethereum Wallet and Mist     :  https://github.com/ethereum/mist/releases
 
-Ethereum Command Line Tools  :  https://www.ethereum.org/cli
+Parity                       :  https://ethcore.io/parity.html
 
-Mix IDE                      :  https://github.com/ethereum/webthree-umbrella/releases/tag/v1.2.9
+Ethereum Command Line Tools  :  https://www.ethereum.org/cli
 
 Solidity Documentation       : https://solidity.readthedocs.io/en/latest/     
 
-Security Good Practices      : https://github.com/ConsenSys/smart-contract-best-practices#explicitly-mark-visibility-in-functions-and-state-variables 
+Security Good Practices      : https://github.com/ConsenSys/smart-contract-best-practices#explicitly-mark-visibility-in-functions-and-state-variables
 
 
 Truffle Documentation        : https://truffle.readthedocs.io/en/latest/

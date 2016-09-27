@@ -1,6 +1,7 @@
+pragma solidity ^0.4.2;
 contract tokenRecipient { function receiveApproval(address _from, uint256 _value, address _token, bytes _extraData); }
 
-contract SimpleContract {
+contract SimpleCoin {
     /* Public variables of the token */
     string public standard = 'Token 0.1';
     string public name;
@@ -16,7 +17,7 @@ contract SimpleContract {
     event Transfer(address indexed from, address indexed to, uint256 value);
 
     /* Initializes contract with initial supply tokens to the creator of the contract */
-    function SimpleContract(
+    function SimpleCoin(
         uint256 initialSupply,
         string tokenName,
         uint8 decimalUnits,
@@ -27,7 +28,9 @@ contract SimpleContract {
         name = tokenName;                                   // Set the name for display purposes
         symbol = tokenSymbol;                               // Set the symbol for display purposes
         decimals = decimalUnits;                            // Amount of decimals for display purposes
-        msg.sender.send(msg.value);                         // Send back any ether sent accidentally
+        if (!msg.sender.send(msg.value)){
+          throw;
+          }                         // Send back any ether sent accidentally
     }
 
     /* Send coins */
