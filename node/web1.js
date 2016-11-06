@@ -1,5 +1,5 @@
 
-// Simple script to deploy the contract and test the verifier with a data string
+// Simple script to deploy a contract
 
 function runTests(contract) {
 
@@ -31,5 +31,8 @@ var simplecoin = simplecoinContract.new(
     //console.log(e, contract);
     if (typeof contract.address !== 'undefined') {
          console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
+
+    runTests(simplecoin);     
+
     }
  })
