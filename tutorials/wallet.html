@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Installing a Wallet</title>
+</head>
+<body>
+
+Download Software
+You need to download 2 pieces of software
+Geth  - this runs your node on the network
+
+<h3>Geth</h3>
+Follow the instructions <a href="https://www.ethereum.org/cli"> here </a>. Download and install the software, and you can start it to check the install,
+but we need to start it with a special configuration to connect to a private network.
+
+
+<h3>Mist</h3>
+Mist - this is a wallet and app browser
+
+
+<h3>Macosx</h3>
+
+<h4>Geth</h4>
+You first need to install <a href="http://brew.sh"> Homebrew </a>
+Make sure it is up to date
+<code>
+    brew update
+    brew upgrade
+</code>
+then install ethereum
+<code>
+brew tap ethereum/ethereum
+brew install ethereum
+</code>
+
+If you have problems the full documentation is <a href="https://github.com/ethereum/go-ethereum/wiki/Installation-Instructions-for-Mac">here</a>
+
+<h4>Mist</h4>
+
+Download <a href="https://github.com/ethereum/mist/releases/download/v0.8.7/Mist-macosx-0-8-7.dmg">Mist </a>
+
+
+<h3>Windows</h3>
+
+Download <a href="https://github.com/ethereum/mist/releases/download/v0.8.7/Mist-macosx-0-8-7.dmg">Mist </a>
+
+
+<h3>Linux</h3>
+
+Download <a href="https://github.com/ethereum/mist/releases/download/v0.8.7/Mist-macosx-0-8-7.dmg">Mist </a>
+
+<h3>Other Versions</h3>
+All versions of the wallet and Mist can be downloaded <a href="https://github.com/ethereum/mist/releases"> here </a>
+
+
+
+<h3>Connecting to a private network</h3>
+Synchronising with the live blockchain can take a long time, and to develop on that costs real Ether, therefore we will be using a private network.
+
+Setup a workspace
+
+Download (or copy from USB) <a href="zip"> workspace </a>
+
+You should have the following structure
+
+\workspace
+    genesis.json
+    \data
+        static-nodes
+
+to start your node run the start_node script
+
+? for windows need to have exe local ?
+
+
+
+
+</body>
+</html>
