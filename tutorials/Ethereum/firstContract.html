@@ -22,15 +22,15 @@ but solidity is at the moment the most popular</p>
 <p>Click on the tab label that says untitled, to rename the tab to Greeter.sol</p>
 You should then have something like this<br>
 
-<img width="1000" height = "500" src="img/compile1.png" >
+<img width="1000" height = "500" src="../img/compile1.png" >
 
 <p>At the right of the screen we can see the result of the compiled contract</p>
 
-<img width="500" height = "500" src="img/compile2.png" >
+<img width="500" height = "500" src="../img/compile2.png" >
 
 <p>If the bytecode box is empty or you see an error message this means that your contract hasn't compiled, or it is abstract </p>
 
-<img width="500" height = "250" src="img/compileError1.png" >
+<img width="500" height = "250" src="../img/compileError1.png" >
 
 <p>Typically you won't need to use the bytecode, but you will need to use the Interface and Web3 deploy information if you are deploying to a real block chain </p>
 
@@ -51,11 +51,9 @@ This is used to link account numbers to the account balance<br>
 TThe contract has compiled, so we can create an instance of it on the in memory block chain by using the Create on the right of the screen,<br><br>
 You may briefly see a message saying "Waiting for transaction to be mined"<br>
 
-<img width="500" height = "150" src="img/create1.png" >
-
 <p>Then once the contract has been mined you will see details of the contract on the block chain </p>
 
-<img width="500" height = "350" src="img/create2.png" > <br>
+<img width="500" height = "350" src="../img/create2.png" > <br>
 
 <p>The points to note here are the address, the gas and the function button<br>
     The address field shows the address of the contract on the block chain and is the means by which you can reference the contract from other contracts or applications<br>
@@ -82,7 +80,7 @@ So far we have deployed our contract to an in memory block chain, there are 2 wa
     Try switching to this environment now and then create another example of the contract, this time it will take a few seconds for the contract to be mined.<br>
 
 
-<img width="500" height = "350" src="/img/enviro1.png" > <br>
+<img width="500" height = "350" src="../img/enviro1.png" > <br>
 
 
 <pre><code>mapping (address => uint) coinBalanceOf <br></code></pre>
@@ -102,7 +100,7 @@ We also see the variable msg.sender this is the address of the account starting 
     For the next part we need to unlock the default account, so first stop the geth node<br>
     <b>exit</b><br>
     then restart it with the account unlocked<br>
-    <b>geth --datadir data --networkid 20161105 --ipcpath &lt; path to ipc file&gt; --rpc --rpcaddr=localhost --rpcport=8545 --rpccorsdomain "*" --unlock 0 console 2>geth.log</b>
+    <b>geth --datadir data --networkid 20161105 --ipcpath &lt; path to ipc file&gt; --rpc --rpcaddr=localhost --rpcport=8545 --rpccorsdomain "*" --unlock 0 console</b>
 
     Lets create another account <br>
     <b>personal.newAccount();</b><br>
@@ -163,21 +161,20 @@ and shortly a message will appear in the console<br>
 
 Our contract is now on the blockchain<br>
 
-To interact with it we need to send it a transaction, which we can do from the console<br>
+To interact with it we need to send it a transaction, which we can do from the console
 
-<b>greeter.greet.call({from: web3.eth.accounts[0]});</b> <br>
-<br>
+<b>greeter.greet.call({from: web3.eth.accounts[0]});</b>
+
 You should receive the response "hello"<br>
 
-<br>
 Note that because this is a constant function we can use call rather than sendTransaction
 
 
 
 <h3>Resources</h3>
 <h4>Source Code</h4>
-<a href ="Greeter.sol" > Greeter Contract </a><br>
-<a href ="HackCoin.sol" > Token Contract </a>
+<a href ="../contracts/Greeter.sol" > Greeter Contract </a>
+<a href ="../contracts/SimpleCoin.sol" > Token Contract </a>
 
 </body>
 </html>
