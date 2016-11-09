@@ -76,7 +76,7 @@ You should have the following structure
 
 Open a terminal and run the following :
 
-geth --datadir data --networkid 20160915 --ipcpath ~/Library/Ethereum/geth.ipc console
+geth --datadir data --networkid 20161105 --ipcpath ~/Library/Ethereum/geth.ipc console
 
 You should see something similar to the following
 
@@ -95,22 +95,29 @@ You should have the following structure
 
 Open a terminal and run the following :
 
-geth --datadir data --networkid 20160915 --ipcpath ~/.ethereum/geth.ipc console
+geth --datadir data --networkid 20161105 --ipcpath ~/.ethereum/geth.ipc console
 
+<h4>Windows</h4>
+Download (or copy from USB) <a href="zip"> workspace </a> into a !!!!
 
+You should have the following structure
 
-<h2>Start your local node<h2>
-  Open a terminal (Mac or Linux) or a command prompt (Windows)
-  Move to the workspace directory run :
+\workspace
+    start_geth.sh
+    \data
+      chaindata
+      static-nodes
 
-  <h4>Macosx</h4>
-  geth --datadir data --networkid 20160915 --ipcpath ~/Library/Ethereum/geth.ipc console
+Open a command prompt, move to that directory and run the following :
+
+geth --datadir data --networkid 20161105 console
 
 
 
 <h2>Using Mist</h2>
 
 Once you have geth running from the command line you can open Mist.
+
 
 
 

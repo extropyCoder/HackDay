@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Setting up Geth on a Raspberry Pi</title>
+</head>
+<body>
+
+<h2>You will need</h2>
+
+    <ul>
+
+        <li> Raspberry Pi, power supply, case</li>
+        <li> 64GB micro SD Card</li>
+        <li> Ethernet Cable</li>
+
+    </ul>
+
+<h2>Instructions</h2>
+
+Download this <a href = "http://www.ethembedded.com/downloads/Raspi2/EthEmbedded-RPi2_3-Ubuntu_Mate-Geth1.3.5-2016-03-06.img.tar.gz" > image </a>
+
+<p>Follow the to write the image to your SD card</p>
+
+<a href="https://www.raspberrypi.org/documentation/installation/installing-images/linux.md"> Linux Instructions</a> <br/>
+<a href="http://sourceforge.net/projects/win32diskimager/"> Windows Disk imager</a>
+
+<p> Eject and remove your SD card and assembly your Pi with the new card</p>
+
+<h3>Start your Raspberry Pi</h3>
+<p>Boot up and login with <br/>
+    username <b>eth</b><br/>
+    password <b>eth</b> </p>
+
+<p>Change the password with the <b>passwd</b> command</p>
+
+<h4>Resize the partition to use the whole SD card</h4>
+
+<p> type <b> sudo fdisk /dev/mmcblk0 </b></p>
+re create the partition by entering the following when prompted<br/><br/>
+<b>d</b> – delete<br/>
+<b>2</b> – partition to be deleted<br/>
+<b>n</b> – create new partition<br/>
+<b>p</b> – select partition type primary<br/>
+<b>enter</b> - select default<br/>
+<b>enter</b> – select default start block<br/>
+<b>enter</b>  – select default last block<br/>
+<b>w</b>  – to write our changes<br/>
+<br/>
+Now reboot the machine  :<br/>
+
+<b>sudo reboot</b><br/>
+<br/>
+when the machine restarts login again <br>
+then run<br/><br/>
+<b>sudo resize2fs /dev/mmcblk0p2 </b>  – to expand the partition<br/><br/>
+
+You can check with <b>df -h</b><br/>
+
+
+</body>
+</html>
