@@ -70,12 +70,48 @@ Download (or copy from USB) <a href="zip"> workspace </a> into a suitable direct
 You should have the following structure
 
 \workspace
+    \data
+      chaindata
+      static-nodes
+
+Open a terminal and run the following :
+
+geth --datadir data --networkid 20160915 --ipcpath ~/Library/Ethereum/geth.ipc console
+
+You should see something similar to the following
+
+
+
+<h4>Linux</h4>
+Download (or copy from USB) <a href="zip"> workspace </a> into a suitable directory.
+
+You should have the following structure
+
+\workspace
     start_geth.sh
     \data
       chaindata
       static-nodes
 
-to start your node run the start_geth.sh script (you may need to change its permissions for it to run)
+Open a terminal and run the following :
+
+geth --datadir data --networkid 20160915 --ipcpath ~/.ethereum/geth.ipc console
+
+
+
+<h2>Start your local node<h2>
+  Open a terminal (Mac or Linux) or a command prompt (Windows)
+  Move to the workspace directory run :
+
+  <h4>Macosx</h4>
+  geth --datadir data --networkid 20160915 --ipcpath ~/Library/Ethereum/geth.ipc console
+
+
+
+<h2>Using Mist</h2>
+
+Once you have geth running from the command line you can open Mist.
+
 
 
 
