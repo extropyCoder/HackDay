@@ -5,17 +5,11 @@
 </head>
 <body>
 
-Download Software
-You need to download 2 pieces of software
+Install Software
+You need to install 2 pieces of software
 Geth  - this runs your node on the network
+Mist - this acts as a wallet and dapp browser
 
-<h3>Geth</h3>
-Follow the instructions <a href="https://www.ethereum.org/cli"> here </a>. Download and install the software, and you can start it to check the install,
-but we need to start it with a special configuration to connect to a private network.
-
-
-<h3>Mist</h3>
-Mist - this is a wallet and app browser
 
 
 <h3>Macosx</h3>
@@ -35,6 +29,8 @@ brew install ethereum
 
 If you have problems the full documentation is <a href="https://github.com/ethereum/go-ethereum/wiki/Installation-Instructions-for-Mac">here</a>
 
+You can start it to check the install, but we need to start it with a special configuration to connect to a private network.
+
 <h4>Mist</h4>
 
 Download <a href="https://github.com/ethereum/mist/releases/download/v0.8.7/Mist-macosx-0-8-7.dmg">Mist </a>
@@ -42,10 +38,19 @@ Download <a href="https://github.com/ethereum/mist/releases/download/v0.8.7/Mist
 
 <h3>Windows</h3>
 
+<h4>Geth</h4>
+Follow the instructions <a href="https://www.ethereum.org/cli"> here </a>.
+Download and install the software, and you can start it to check the install, but then close the application, because we need to start it with a special configuration to connect to a private network.
+
+
+<h4>Mist</h4>
 Download <a href="https://github.com/ethereum/mist/releases/download/v0.8.7/Mist-macosx-0-8-7.dmg">Mist </a>
 
 
 <h3>Linux</h3>
+
+<h4>Geth</h4>
+Follow the instructions <a href="https://www.ethereum.org/cli"> here </a>. D
 
 Download <a href="https://github.com/ethereum/mist/releases/download/v0.8.7/Mist-macosx-0-8-7.dmg">Mist </a>
 
@@ -54,24 +59,23 @@ All versions of the wallet and Mist can be downloaded <a href="https://github.co
 
 
 
-<h3>Connecting to a private network</h3>
-Synchronising with the live blockchain can take a long time, and to develop on that costs real Ether, therefore we will be using a private network.
+<h2>Connecting to a private network</h2>
+Synchronising with the live blockchain can take a long time, and to develop on that blockchain costs real Ether, therefore we will be using a private network.
 
-Setup a workspace
+<h3>Setup a workspace</h3>
 
-Download (or copy from USB) <a href="zip"> workspace </a>
+<h4>Macosx</h4>
+Download (or copy from USB) <a href="zip"> workspace </a> into a suitable directory.
 
 You should have the following structure
 
 \workspace
-    genesis.json
+    start_geth.sh
     \data
-        static-nodes
+      chaindata
+      static-nodes
 
-to start your node run the start_node script
-
-? for windows need to have exe local ?
-
+to start your node run the start_geth.sh script (you may need to change its permissions for it to run)
 
 
 
