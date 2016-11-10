@@ -12,7 +12,7 @@ These are simplified versions of the tutorials from the Ethereum website.<br>
 We will be writing the contracts in solidity , other languages are available,<br>
 but solidity is at the moment the most popular</p>
 
-<p>We will be using the online solidity compiler, other IDEs are available , I will talk about Truffle this afternoon<br>
+<p>We will be using the online solidity compiler, I will look at other IDEs such as Truffle later <br>
     I have picked this as it is quite simple when you are starting out<br>
 <p>The online compiler has a runtime that allows some limited testing against an in memory blockchain in the browser, we shall see how to deploy to a real block chain later.</p>
 
@@ -22,15 +22,11 @@ but solidity is at the moment the most popular</p>
 <p>Click on the tab label that says untitled, to rename the tab to Greeter.sol</p>
 You should then have something like this<br>
 
-<img width="1000" height = "500" src="../img/compile1.png" >
+<img  height = "600" src="../img/compile1.png" >
 
 <p>At the right of the screen we can see the result of the compiled contract</p>
 
-<img width="500" height = "500" src="../img/compile2.png" >
-
-<p>If the bytecode box is empty or you see an error message this means that your contract hasn't compiled, or it is abstract </p>
-
-<img width="500" height = "250" src="../img/compileError1.png" >
+<img height = "600" src="../img/compile2.png" >
 
 <p>Typically you won't need to use the bytecode, but you will need to use the Interface and Web3 deploy information if you are deploying to a real block chain </p>
 
@@ -39,136 +35,44 @@ You should then have something like this<br>
 <p>If you know Javascript  / Java / C then Solidity should look familiar, the langauge itself is not difficult, the work lies in how to create an app that is suitable for the block chain.<br>
     You will see that we have a variable called greeting of type string, and 2 functions.<br>
     The function greeter, having the same name as the function will run when the contract is created, similar to constructors in object oriented languages<br>
-    The function greet provides the functionality of the contract.</p>
+    The function greet provides the functionality of the contract.
+  </p>
 
-The idea of the contract is to create a crypto currency.
-It has a function HackCoin - the same name as the contract, this is a constructor (for those familiar with object oriented langauges).
-This function is run only once, when the contract is created on the blockchain, and so is used to initialise the state of the contract.
+<h4>Functions</h4>
 
-We also have a mapping datatype as our storage this has the variable name balanceOf <br>
-This is used to link account numbers to the account balance<br>
+Interaction with the contract is via functions, in this case we have one function
+<pre><code>
+  function greet() constant returns (string) {
+  return greeting;
+  }
+</code></pre>
+when this is called it returns the string value that we provided in the constructor function.<br>
+Note that this function is marked as constant, this means that it does not alter the state of the blockchain, it is in effect read only.<br>
+As such we do not need to create a full transaction to call it, we can simply run the function on our local node.<br>
+As this function stands anyone can call it, if we wish to restrict who can call functions, we use modifiers, we will see these later.<br>
 
-TThe contract has compiled, so we can create an instance of it on the in memory block chain by using the Create on the right of the screen,<br><br>
-You may briefly see a message saying "Waiting for transaction to be mined"<br>
+<p><br>
+  We are still working within the browser with an in memory blockchain, so lets deploy our simple contract to that<br>
 
-<p>Then once the contract has been mined you will see details of the contract on the block chain </p>
+our constructor takes one argument the greeter string, so we need to supply that in the box, and click the create button<br>
 
-<img width="500" height = "350" src="../img/create2.png" > <br>
+after a short time (during which you may see a "waiting to be mined message") you will see the deployed contract</p>
+<p>
+<img height = "700" src="../img/greetdeploy1.png" >
+</p>
 
-<p>The points to note here are the address, the gas and the function button<br>
-    The address field shows the address of the contract on the block chain and is the means by which you can reference the contract from other contracts or applications<br>
-    The gas represents how much gas was needed to create the contract, the more code and storage the contract has, the higher the gas cost will be<br>
-    This contract costs 152085 gas to create<br>
-    The blue button labelled greet allows you to call the greet function, generally any functions in your contract will have a button here to allow you to call it.<br>
-    What is odd here is that there is a value next to this button as if it has already been called, indeed if you click the button, it will return this same value.<br>
-    This is because the greet function has been denoted as constant in this contract.<br>
-    If you label a function as constant, you are telling the compiler that when this function runs it will not affect the state of the bloick chain, in effect the function is read only.<br>
-    It is always worthwhile to decide which of your functions are read only and label them as constant where possible, constant functions cost less gas, and can just run on your local node, reducing network traffic.<br>
-    The greet function costs 25943 gas to run.</p>
-
-<h3>Deploying the contract to a real block chain</h3>
-
-So far we have deployed our contract to an in memory block chain, there are 2 ways to deploy to a real block chain
+The points to note are :
 <ul>
-    <li>Deploy from the online compiler to your own node (easiest)</li>
-    <li>Deploy from your own node</li>
+
+<li>Greeter at 0x692a70d2e424a56d2c6c27aa97d1a86395877b3a (memory)<br>
+This is the address of the deployed contract, when you want to interact with the contract you need to know this</li>
+<li>below that the red and blue buttons represent the functions that can be called, clicking the button will call that function on the deployed contract <br>
+the colour of the button indicates whether it is a constant function or not, blue means it is a constant function.</li>
+<li>The fallback function - by default all contracts have a fallback function, if you send ether to a contract, or try to call a non existent function on a contract, the fallback function will be called.<br>
+This was at the heart of the DAO attack, so be careful with this function. </li>
+<li>bytecode  - these are the actual instructions that are put on the blockchain, not the source code, so for example comments in the source code don't get added to the blockchain</li>
+<li>Web3 deploy - this is a piece of javascript that we can use to deploy the contract to a real blockchain, we will see how later </li>
 </ul>
-
-<p>To change the environment click on the black cube in the top right of the screen<br>
-    This allows you to switch between the default JavaScript VM to a Web3 provider.<br>
-    You need to specify the endpoint for your Web3 provider, if you have your local version of geth running the endpoint is <b>http://localhost:8545</b><br>
-    Try switching to this environment now and then create another example of the contract, this time it will take a few seconds for the contract to be mined.<br>
-
-
-<img width="500" height = "350" src="../img/enviro1.png" > <br>
-
-
-<pre><code>mapping (address => uint) coinBalanceOf <br></code></pre>
-so if we have address xyz and we want to set the balance to be 200, the syntax used is <br>
-
-coinBalanceOf[xyx]=200;</code></pre>
-we also have an event called CoinTransfer specified, this is a way of getting callbacks on the block chain.<br>
-For example we can have what is callled a listener in an external program which will be triggered each time the event CoinTransfer happens.<br>
-</p>
-The sendCoin function handles adjusting the accounts when we transfer coins. Note that since this changes the state of the blockchain, it is not marked as constant.<br>
-
-We also see the variable msg.sender this is the address of the account starting a transaction, in the case of the constructor this is the person creating the contract.<br>
-
-
-
-
-    For the next part we need to unlock the default account, so first stop the geth node<br>
-    <b>exit</b><br>
-    then restart it with the account unlocked<br>
-    <b>geth --datadir data --networkid 20161105 --ipcpath &lt; path to ipc file&gt; --rpc --rpcaddr=localhost --rpcport=8545 --rpccorsdomain "*" --unlock 0 console</b>
-
-    Lets create another account <br>
-    <b>personal.newAccount();</b><br>
-
-    and transfer some ether between accounts<br>
-
-    <b>web3.eth.sendTransaction({from: eth.accounts[0], to: eth.accounts[1], value: web3.toWei(0.001, "ether")});</b>
-
-    You will see a transsaction in the log file : <br>
-
-<pre><code>
-  I1106 15:08:20.946243 eth/api.go:1185] Tx(0xea1e394c8f72d0178af7fbed1bb81832249ee59d741e9fb8fa2577407e6d4d74) to: 0x16552584bbdd996a8018480ac3b6bded7cc718b6
-  "0xea1e394c8f72d0178af7fbed1bb81832249ee59d741e9fb8fa2577407e6d4d74"
-</code></pre>
-
-    if it hasn't been mined, so we also need to start the miner<br>
-
-<b>miner.start(1)</b> <br>
-if we then check the balance of this second account we should see that it has some ether<br>
-<b>web3.fromWei(web3.eth.getBalance(web3.eth.accounts[1]), "ether");</b>
-</p>
-
-<h2>Deploying the contract from the console</h2>
-
-Now we will deploy the contract we created earlier from the console.<br>
-You need to copy the statements from the Web3 deploy box at the right hand side of the online compiler<br>
-
-You should have some thing like this <br>
-<pre><code>
-  var _greeting = /* var of type string here */ ;
-  var greeterContract = web3.eth.contract([{"constant":true,"inputs":[],"name":"greet","outputs":[{"name":"","type":"string"}],"payable":false,"type":"function"},{"inputs":[{"name":"_greeting","type":"string"}],"type":"constructor"}]);
-  var greeter = greeterContract.new(
-   _greeting,
-   {
-     from: web3.eth.accounts[0],
-     data: '6060604052604051610250380380610250833981016040528080518201919060200150505b8060006000509080519060200190828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f10607157805160ff1916838001178555609f565b82800160010185558215609f579182015b82811115609e5782518260005055916020019190600101906082565b5b50905060c6919060aa565b8082111560c2576000818150600090555060010160aa565b5090565b50505b50610178806100d86000396000f360606040526000357c010000000000000000000000000000000000000000000000000000000090048063cfae32171461003c57610037565b610002565b346100025761004e60048050506100bc565b60405180806020018281038252838181518152602001915080519060200190808383829060006004602084601f0104600302600f01f150905090810190601f1680156100ae5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b602060405190810160405280600081526020015060006000508054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156101695780601f1061013e57610100808354040283529160200191610169565b820191906000526020600020905b81548152906001019060200180831161014c57829003601f168201915b50505050509050610175565b9056',
-     gas: 4700000
-   }, function (e, contract){
-    console.log(e, contract);
-    if (typeof contract.address !== 'undefined') {
-         console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
-    }
- })
-</code></pre>
-You will need to edit the first line of this to provide the greeting parameter <br>
-e.g.<br>
-var _greeting = "hello" ; <br>
-
-Then paste all of that directly into the geth console and press enter<br>
-
-You will see a transaction in the log file<br>
-
-<pre><code>I0225 15:24:32.716083 eth/api.go:1065] Tx(0x02bcb678fb4488b24d19bc5e24b51e0504749b6001c6ff75d81c45e8489a6e08) created: 0xf882141d96776165a3078f4519a50fdfaf2bfced</code></pre>
-
-and shortly a message will appear in the console<br>
-
-<pre><code>Contract mined! address: 0xf882141d96776165a3078f4519a50fdfaf2bfced transactionHash: 0x02bcb678fb4488b24d19bc5e24b51e0504749b6001c6ff75d81c45e8489a6e08</code></pre>
-
-Our contract is now on the blockchain<br>
-
-To interact with it we need to send it a transaction, which we can do from the console
-
-<b>greeter.greet.call({from: web3.eth.accounts[0]});</b>
-
-You should receive the response "hello"<br>
-
-Note that because this is a constant function we can use call rather than sendTransaction
-
 
 
 <h3>Resources</h3>
