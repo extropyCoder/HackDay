@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <title>Installing a Wallet</title>
 </head>
-<body>
+<img>
 
 <h2>Install Software</h2>
 You need to install 2 pieces of software: <br>
@@ -19,15 +19,17 @@ Mist - this acts as a wallet and dapp browser<br>
     <li><h4>Geth</h4>
         You first need to install <a href="http://brew.sh"> Homebrew </a><br>
         Make sure it is up to date<br>
-        <code>
+        <pre><code>
             brew update
             brew upgrade
-        </code>
+        </code></pre>
+
         then install ethereum<br>
-        <code>
+
+        <pre><code>
             brew tap ethereum/ethereum
             brew install ethereum
-        </code>
+        </code></pre>
 
         If you have problems the full documentation is <a href="https://github.com/ethereum/go-ethereum/wiki/Installation-Instructions-for-Mac">here</a><br>
 
@@ -78,11 +80,11 @@ Download (or copy from USB) <a href="../../resources/mac/workspace.zip"> workspa
 Open a terminal and run the following :<br>
 <pre><code>
 geth --datadir data --networkid 20161105 --ipcpath ~/Library/Ethereum/geth.ipc console
-</pre></code>
+</code></pre>
 
 You should see something similar to the following
 
-
+<img src="../img/gethStarting.png">geth</img>
 
 <h4>Linux</h4>
 Download (or copy from USB) <a href="../../resources/linux/workspace.zip"> workspace </a> into a suitable directory.
@@ -91,16 +93,16 @@ Download (or copy from USB) <a href="../../resources/linux/workspace.zip"> works
 Open a terminal and run the following :
 <pre><code>
 geth --datadir data --networkid 20161105 --ipcpath ~/.ethereum/geth.ipc console
-</pre></code>
+</code></pre>
 
 <h4>Windows</h4>
-Download (or copy from USB) <a href="../../resources/windows/workspace.zip"> workspace </a> into a ~\AppData\Roaming\Ethereum
+Download (or copy from USB) <a href="../../resources/windows/workspace.zip"> workspace </a> into ~\AppData\Roaming\Ethereum
 
 
-Open a command prompt, move to that directory and run the following :
+<p>Open a command prompt, move to that directory and run the following :
 <pre><code>
 geth --datadir data --networkid 20161105 console
-</pre></code>
+</code></pre>
 
 
 <h2>Using Mist</h2>
