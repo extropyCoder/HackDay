@@ -51,6 +51,10 @@ Note that this function is marked as constant, this means that it does not alter
 As such we do not need to create a full transaction to call it, we can simply run the function on our local node.<br>
 As this function stands anyone can call it, if we wish to restrict who can call functions, we use modifiers, we will see these later.<br>
 
+
+
+
+
 <p><br>
   We are still working within the browser with an in memory blockchain, so lets deploy our simple contract to that<br>
 
@@ -73,6 +77,14 @@ This was at the heart of the DAO attack, so be careful with this function. </li>
 <li>bytecode  - these are the actual instructions that are put on the blockchain, not the source code, so for example comments in the source code don't get added to the blockchain</li>
 <li>Web3 deploy - this is a piece of javascript that we can use to deploy the contract to a real blockchain, we will see how later </li>
 </ul>
+
+
+<h4>Return values from functions</h4>
+One unusual aspect of coding for the blockchain is the way we get values back from a function.<br>
+For a constant function it is straightforward, we can get a value back, since we are just calling this on our local node, we do not have to wait for consensus, or have the possibility of a transaction being rejected.<br>
+
+Lets look at a non constant function, if we add a function to allow us to change the greeting, this function would change the state of the blockchain
+  
 
 
 <h3>Resources</h3>
