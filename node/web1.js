@@ -1,5 +1,5 @@
 
-// Simple script to deploy a contract
+// Simple Coin interaction
 
 function getCoinbase(contract) {
   var coinbase = web3.eth.coinbase;
@@ -10,6 +10,34 @@ function getTokenName(contract) {
   var name = contract.name.call();
   console.log("Token Name is ",name);
 }
+
+function transfer(contract) {
+  var tx = contract.transfer.sendTransaction(web3.eth.accounts[0],101,{from: web3.eth.accounts[0],gas: 2000000});
+  console.log("Transaction ID is ",tx);
+}
+
+function setUpFilter(contract){
+    var filter = web3.eth.filter([contract.Transfer]);
+    filter.watch(transferEvent);
+
+}
+
+function transferEvent(){
+  console.log("Transfered");
+}
+
+var transferEvent = function (error,result){
+ if(!error) {
+    console.log(result);
+
+  } else {
+    console.error(new Date() + " " + error);
+}
+}
+
+
+
+
 
 var Web3 = require('web3');
 if (typeof web3 !== 'undefined') {
@@ -37,8 +65,10 @@ var simplecoin = simplecoinContract.new(
     if (typeof contract.address !== 'undefined') {
          console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
 
+    setUpFilter(simplecoin);
     getCoinbase(simplecoin);
     getTokenName(simplecoin);
+    transfer(simplecoin);
 
     }
  })
