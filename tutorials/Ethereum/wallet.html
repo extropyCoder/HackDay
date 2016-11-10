@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
@@ -17,7 +18,7 @@ Mist - this acts as a wallet and dapp browser<br>
 <ul>
 
     <li><h4>Geth</h4>
-        You first need to install <a href="http://brew.sh"> Homebrew </a><br>
+        You first need to install Homebrew, follow these  <a href="http://brew.sh"> instructions</a><br>
         Make sure it is up to date<br>
         <pre><code>
             brew update
@@ -77,20 +78,17 @@ Synchronising with the live blockchain can take a long time, and to develop on t
 Download (or copy from USB) <a href="../../resources/mac/workspace.zip"> workspace </a> into a suitable directory.<br>
 
 
-Open a terminal and run the following :<br>
+Open a terminal and run the following in the workspace directory <br>
 <pre><code>
 geth --datadir data --networkid 20161105 --ipcpath ~/Library/Ethereum/geth.ipc console
 </code></pre>
 
-You should see something similar to the following
-
-<img src="../img/gethStarting.png">geth</img>
 
 <h4>Linux</h4>
 Download (or copy from USB) <a href="../../resources/linux/workspace.zip"> workspace </a> into a suitable directory.
 
 
-Open a terminal and run the following :
+Open a terminal and run the following in the workspace directory:
 <pre><code>
 geth --datadir data --networkid 20161105 --ipcpath ~/.ethereum/geth.ipc console
 </code></pre>
@@ -105,11 +103,23 @@ geth --datadir data --networkid 20161105 console
 </code></pre>
 
 
+<p>When geth starts you should see something similar to the following : <br> </p>
+
+<img alt="geth"  height="400" src="../img/gethStarting.png">
+
+
+
 <h2>Using Mist</h2>
 
-Once you have geth running from the command line you can open Mist.
+Once you have geth running from the command line you can open Mist<br>
 
+<p>
+<img alt="mist1"  height="200" src="../img/windowsMistLoading.png">
+</p>
+<p> click launch application and you should see the wallet
+</p><br>
 
+<img alt="mist2"  height="400" src="../img/windowsMistOpen.png">
 
 </body>
 </html>
