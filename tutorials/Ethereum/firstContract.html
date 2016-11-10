@@ -78,13 +78,18 @@ This was at the heart of the DAO attack, so be careful with this function. </li>
 <li>Web3 deploy - this is a piece of javascript that we can use to deploy the contract to a real blockchain, we will see how later </li>
 </ul>
 
-
 <h4>Return values from functions</h4>
 One unusual aspect of coding for the blockchain is the way we get values back from a function.<br>
 For a constant function it is straightforward, we can get a value back, since we are just calling this on our local node, we do not have to wait for consensus, or have the possibility of a transaction being rejected.<br>
 
 Lets look at a non constant function, if we add a function to allow us to change the greeting, this function would change the state of the blockchain
-  
+<pre><code>
+  function changeGreeting(string _newGreeting) {
+ greeting = _newGreeting;
+ }
+</code></pre>
+We would call this differently than we do for a constant function
+
 
 
 <h3>Resources</h3>
