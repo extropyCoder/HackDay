@@ -5,57 +5,64 @@
 </head>
 <body>
 
-Install Software
-You need to install 2 pieces of software
-Geth  - this runs your node on the network
-Mist - this acts as a wallet and dapp browser
+<h2>Install Software</h2>
+You need to install 2 pieces of software: <br>
+
+Geth  - this runs your node on the network<br>
+Mist - this acts as a wallet and dapp browser<br>
 
 
 
 <h3>Macosx</h3>
+<ul>
 
-<h4>Geth</h4>
-You first need to install <a href="http://brew.sh"> Homebrew </a>
-Make sure it is up to date
+<li><h4>Geth</h4>
+You first need to install <a href="http://brew.sh"> Homebrew </a><br>
+Make sure it is up to date<br>
 <code>
     brew update
     brew upgrade
 </code>
-then install ethereum
+then install ethereum<br>
 <code>
 brew tap ethereum/ethereum
 brew install ethereum
 </code>
 
-If you have problems the full documentation is <a href="https://github.com/ethereum/go-ethereum/wiki/Installation-Instructions-for-Mac">here</a>
+If you have problems the full documentation is <a href="https://github.com/ethereum/go-ethereum/wiki/Installation-Instructions-for-Mac">here</a><br>
 
-You can start it to check the install, but we need to start it with a special configuration to connect to a private network.
-
-<h4>Mist</h4>
+You can start it to check the install, but we need to start it with a special configuration to connect to a private network.<br>
+</li>
+<li><h4>Mist</h4>
 
 Download <a href="https://github.com/ethereum/mist/releases/download/v0.8.7/Mist-macosx-0-8-7.dmg">Mist </a>
-
+</li>
+</ul>
 
 <h3>Windows</h3>
-
-<h4>Geth</h4>
+<ul>
+<li><h4>Geth</h4>
 Follow the instructions <a href="https://www.ethereum.org/cli"> here </a>.
 Download and install the software, and you can start it to check the install, but then close the application, because we need to start it with a special configuration to connect to a private network.
+</li>
 
 
-<h4>Mist</h4>
+<li><h4>Mist</h4>
 Download <a href="https://github.com/ethereum/mist/releases/download/v0.8.7/Mist-macosx-0-8-7.dmg">Mist </a>
-
+</li>
+</ul>
 
 <h3>Linux</h3>
-
-<h4>Geth</h4>
-Follow the instructions <a href="https://www.ethereum.org/cli"> here </a>. D
-
-Download <a href="https://github.com/ethereum/mist/releases/download/v0.8.7/Mist-macosx-0-8-7.dmg">Mist </a>
-
+<ul>
+<li><h4>Geth</h4>
+Follow the instructions <a href="https://www.ethereum.org/cli"> here </a> <br>
+</li>
+<li>
+Download <a href="https://github.com/ethereum/mist/releases/download/v0.8.7/Mist-macosx-0-8-7.dmg">Mist </a><br>
+</li>
+</ul>
 <h3>Other Versions</h3>
-All versions of the wallet and Mist can be downloaded <a href="https://github.com/ethereum/mist/releases"> here </a>
+All versions of the wallet and Mist can be downloaded <a href="https://github.com/ethereum/mist/releases"> here </a><br>
 
 
 
@@ -65,18 +72,19 @@ Synchronising with the live blockchain can take a long time, and to develop on t
 <h3>Setup a workspace</h3>
 
 <h4>Macosx</h4>
-Download (or copy from USB) <a href="zip"> workspace </a> into a suitable directory.
+Download (or copy from USB) <a href="zip"> workspace </a> into a suitable directory.<br>
 
-You should have the following structure
+You should have the following structure<br>
 
 \workspace
     \data
       chaindata
       static-nodes
 
-Open a terminal and run the following :
-
+Open a terminal and run the following :<br>
+<pre><code>
 geth --datadir data --networkid 20161105 --ipcpath ~/Library/Ethereum/geth.ipc console
+</pre></code>
 
 You should see something similar to the following
 
@@ -85,40 +93,25 @@ You should see something similar to the following
 <h4>Linux</h4>
 Download (or copy from USB) <a href="zip"> workspace </a> into a suitable directory.
 
-You should have the following structure
-
-\workspace
-    start_geth.sh
-    \data
-      chaindata
-      static-nodes
 
 Open a terminal and run the following :
-
+<pre><code>
 geth --datadir data --networkid 20161105 --ipcpath ~/.ethereum/geth.ipc console
+</pre></code>
 
 <h4>Windows</h4>
 Download (or copy from USB) <a href="zip"> workspace </a> into a !!!!
 
-You should have the following structure
-
-\workspace
-    start_geth.sh
-    \data
-      chaindata
-      static-nodes
 
 Open a command prompt, move to that directory and run the following :
-
+<pre><code>
 geth --datadir data --networkid 20161105 console
-
+</pre></code>
 
 
 <h2>Using Mist</h2>
 
 Once you have geth running from the command line you can open Mist.
-
-
 
 
 
