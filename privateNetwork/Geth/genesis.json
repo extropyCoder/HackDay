@@ -1,12 +1,12 @@
 {
   "nonce": "0x1391eaa92b871f91",
   "difficulty": "0x800000",
-  "gasLimit": "0x1388",
+  "gasLimit": "0x888888",
   "config": {
     "homesteadBlock": 0
   },
   "alloc": {
-    "581ed5fb0465c610c17d8aeacaf859948d510f8a": {
+      "0x6cd76de2be94dc062ca93738cc62c38bcda321da": {
       "balance": "56000000000000000000000000"
     }
   }
